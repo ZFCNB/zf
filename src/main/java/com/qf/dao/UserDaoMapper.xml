@@ -17,4 +17,16 @@
         <!--#{arg0} = 方法的第一个形参-->
         SELECT * FROM t_users WHERE id = #{id}
     </select>
+    <select id="selectUserByIdB" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{id} and password = #{password}
+    </select>
+    <select id="selectUserByMap" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{id} and #{password}
+    </select>
+    <select id="selectUserByUser" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{id} and #{password}
+    </select>
 </mapper>

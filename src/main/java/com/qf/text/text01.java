@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class text01 {
     public static void main(String[] args) throws IOException {
@@ -26,11 +28,26 @@ public class text01 {
         User user = userDao.selectUserById(1);
         User user1 = userDao.selectUserByIdAndPassword(1,"123");
         User user2 = userDao.selectUserByIdA(1);
+        User user3 = userDao.selectUserByIdB(1, "123");
+        Map map = new HashMap();
+        map.put("id",1);
+        map.put("password","123");
+        User user4 = userDao.selectUserByMap(map);
+        User user11 = new User();
+        user11.setId(1);
+        user11.setPassword("123");
+        User user5 = userDao.selectUserByUser(user11);
         System.out.println(user);
         System.out.println("==========================");
         System.out.println(user1);
         System.out.println("==========================");
         System.out.println(user2);
+        System.out.println("==========================");
+        System.out.println(user3);
+        System.out.println("==========================");
+        System.out.println(user4);
+        System.out.println("==========================");
+        System.out.println(user5);
 
     }
 }
