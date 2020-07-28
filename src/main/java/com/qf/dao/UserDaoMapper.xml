@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace = 所需实现的接口全限定名  -->
+    <mapper namespace="com.qf.dao.UserDao">
+    <!--id = 所需重写的接口抽象方法，resultType = 查询后所需返回的对象类型-->
+    <select id="selectUserById" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{arg0}
+    </select>
+    <select id="selectUserByIdAndPassword" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{param1} and password = #{param2}
+    </select>
+    <select id="selectUserByIdA" resultType="com.qf.entity.User">
+        <!--#{arg0} = 方法的第一个形参-->
+        SELECT * FROM t_users WHERE id = #{id}
+    </select>
+</mapper>
